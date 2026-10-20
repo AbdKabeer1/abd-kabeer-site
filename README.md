@@ -31,10 +31,18 @@ Everything lives in **`src/data/profile.ts`**:
 - name, role, location, email, phone, summary, intro
 - metrics strip
 - experience entries (company, role, period, bullets)
-- projects (with optional links)
+- projects (with optional links and previews)
 - certifications, education, skills, languages
 
-No component edits needed for content changes.
+No component edits needed for content changes. The skills section includes an
+**AI literacy & automation** group (prompt engineering, AI-assisted frontend builds,
+UI/UX prototyping, workflow automation).
+
+## Assets
+
+- `src/assets/previews/` — project screenshots (optimised to WebP at build)
+- `public/cv.pdf` — downloadable CV; regenerate by printing `/cv` from Chrome
+- `public/og.png` — 1200×630 social card (source layout kept in project history)
 
 ## Structure
 

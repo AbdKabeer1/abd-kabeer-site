@@ -337,7 +337,7 @@ body::after {
 .project-links a:hover { color: var(--lime); border-color: var(--lime); text-shadow: 0 0 14px rgba(200, 255, 77, .4); }
 
 /* ---------------------------------- skills -------------------------------- */
-.skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
 .skill-label { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--lime); margin: 0 0 14px; }
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .chip {
@@ -459,6 +459,7 @@ body::after {
 }
 
 @media print {
+  @page { size: A4; margin: 14mm; }
   .site-header, .site-footer, .cv-toolbar, .skip-link, .spotlight, .grid-bg { display: none !important; }
   body { background: #fff; }
   body::before, body::after { display: none; }

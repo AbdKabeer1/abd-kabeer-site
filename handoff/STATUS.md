@@ -22,6 +22,13 @@ Last updated: 2026-10-20 07:10
   tilt and spotlight unaffected.
 - Verified: `astro check` 0 errors/0 warnings; build OK; `/` and `/cv` 200 on
   production; both game links rendered.
+- **AI literacy capability added**: new "AI literacy & automation" skills group
+  (prompt engineering, AI-assisted frontend builds, UI/UX prototyping with AI,
+  workflow automation, AI research, LLM tooling), plus summary/about/marquee copy.
+- **Downloadable CV**: `public/cv.pdf` generated from `/cv` (A4 print stylesheet).
+- **Social card**: custom 1200×630 `public/og.png` wired into OG + Twitter
+  `summary_large_image` metadata.
+- Production verified: `/cv.pdf` 200, `/og.png` 200, og:image absolute URL correct.
 
 ## In progress
 

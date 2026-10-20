@@ -12,6 +12,16 @@ Record choices the next agent should not re-litigate without a reason.
 - Trade-off: no component library to accelerate future features; fine for one page + CV.
 - Revisit if: the site grows into a blog/CMS → add Astro Content Collections, not a SPA.
 
+## 2026-10-20 — AI literacy + CV PDF + social card
+
+- Context: user asked to add AI capabilities (frontend building, automation, UI/UX,
+  prompting) and to apply recommendations to the site.
+- Chosen: dedicated "AI literacy & automation" skills group; AI line in summary/about
+  and marquee; real `public/cv.pdf` generated from the print page; purpose-made
+  1200×630 OG card with Syne display type; Twitter `summary_large_image`.
+- Trade-off: AI claims are framed as tool-assisted workflow (truthful for the shipped
+  projects) rather than a formal credential; add a certificate if one is earned later.
+
 ## 2026-10-20 — Project previews
 
 - Context: project cards were text-only; user approved screenshots.

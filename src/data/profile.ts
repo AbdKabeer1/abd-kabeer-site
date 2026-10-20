@@ -40,8 +40,10 @@ export const profile = {
     "Contributed to an SME inventory-management product end to end during HNG product management " +
     "training — user research, PRD writing and feature prioritisation. Brings firsthand domain " +
     "knowledge from running an independent electronics business and coordinating a residential " +
-    "construction project. Currently studying International Business at LAB University of Applied " +
-    "Sciences, looking for internships in logistics, e-commerce or SaaS.",
+    "construction project. Works with AI tooling as a multiplier: prompting for research and " +
+    "drafting, building frontend and UI/UX prototypes, and automating repetitive workflows. " +
+    "Currently studying International Business at LAB University of Applied Sciences, looking for " +
+    "internships in logistics, e-commerce or SaaS.",
   intro:
     "I turn messy operational reality into structured product work — from stockrooms and " +
     "supplier negotiations to PRDs and prioritisation.",
@@ -112,6 +114,7 @@ export const profile = {
         "Designed the product loop and shipped it end to end on Vercel with a Turso database.",
         "Built spelling drills with CEFR levels, review scheduling and progress tracking.",
         "Handles real users with per-browser guest profiles and optional accounts.",
+        "Built with an AI-assisted workflow — prompt-driven implementation and fast iteration.",
       ],
       links: [
         { label: "Live site", href: "https://mymemo-omega.vercel.app" },
@@ -212,6 +215,17 @@ export const profile = {
         "Feature prioritisation",
         "Product thinking",
         "Requirements gathering",
+      ],
+    },
+    {
+      label: "AI literacy & automation",
+      items: [
+        "Prompt engineering",
+        "AI-assisted frontend builds",
+        "UI/UX prototyping with AI",
+        "Workflow automation",
+        "AI research & drafting",
+        "LLM tooling for product work",
       ],
     },
     {
