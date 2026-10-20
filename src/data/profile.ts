@@ -17,6 +17,7 @@ export interface Project {
   period: string;
   summary: string;
   bullets: string[];
+  kind?: "game" | "product";
   links?: { label: string; href: string }[];
 }
 
@@ -100,22 +101,10 @@ export const profile = {
   ] satisfies Experience[],
   projects: [
     {
-      name: "SME Inventory Tracker",
-      tag: "Product management · HNG",
-      period: "2025 — 2026",
-      summary:
-        "A cross-functional product helping small-business owners manage inventory across multiple " +
-        "e-commerce platforms (Shopify, AliExpress and others).",
-      bullets: [
-        "Contributed user research and wrote sections of the Product Requirements Document.",
-        "Took part in feature prioritisation and wireframe reviews.",
-        "Worked in Trello for task management and Figma for review cycles.",
-      ],
-    },
-    {
       name: "MyMemo",
       tag: "Product build · side project",
       period: "2026",
+      kind: "product",
       summary:
         "A live Finnish vocabulary game for language learners: spelling rounds, spaced repetition, " +
         "personal word banks and lightweight accounts.",
@@ -127,6 +116,54 @@ export const profile = {
       links: [
         { label: "Live site", href: "https://mymemo-omega.vercel.app" },
         { label: "Source", href: "https://github.com/AbdKabeer1/mymemo" },
+      ],
+    },
+    {
+      name: "Naija Penalty",
+      tag: "Game · Three.js",
+      period: "2026",
+      kind: "game",
+      summary:
+        "A penalty shootout on a dusty village pitch. Pick a player from anywhere in Nigeria, " +
+        "take five penalties, then go in goal and try to save five.",
+      bullets: [
+        "Fully procedural world — pitch, huts, palms, players, ball and sound generated in code.",
+        "Built with Three.js and Vite; zero external image, model or audio assets.",
+      ],
+      links: [
+        { label: "Play", href: "https://streetpk-naija.start.ng/" },
+        { label: "Source", href: "https://github.com/AbdKabeer1/naija-penalty" },
+      ],
+    },
+    {
+      name: "Suomi Sniper",
+      tag: "Game · Three.js",
+      period: "2026",
+      kind: "game",
+      summary:
+        "A stealth sniper game in a winter war. Hold a line against advancing columns where " +
+        "every shot you take tells them roughly where you are.",
+      bullets: [
+        "Sortie-based objectives that escalate — sentries, columns, officers, watchtowers and supply dumps.",
+        "Built with Three.js and Vite, with a playable live build.",
+      ],
+      links: [
+        { label: "Play", href: "https://suomi-sniper.start.ng/" },
+        { label: "Source", href: "https://github.com/AbdKabeer1/suomi-sniper" },
+      ],
+    },
+    {
+      name: "SME Inventory Tracker",
+      tag: "Product management · HNG",
+      period: "2025 — 2026",
+      kind: "product",
+      summary:
+        "A cross-functional product helping small-business owners manage inventory across multiple " +
+        "e-commerce platforms (Shopify, AliExpress and others).",
+      bullets: [
+        "Contributed user research and wrote sections of the Product Requirements Document.",
+        "Took part in feature prioritisation and wireframe reviews.",
+        "Worked in Trello for task management and Figma for review cycles.",
       ],
     },
   ] satisfies Project[],

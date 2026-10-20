@@ -1,6 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
 import { profile } from "../data/profile";
+
+const marquee = [
+  "Product thinking",
+  "Supply chain",
+  "E-commerce ops",
+  "PRD writing",
+  "Feature prioritisation",
+  "Warehouse logistics",
+  "Stakeholder coordination",
+  "Three.js games",
+];
 ---
 
 <Base
@@ -8,98 +19,121 @@ import { profile } from "../data/profile";
   description="Portfolio of Abd Kabeer Salako — product management, operations and logistics. International Business student in Lahti, Finland."
 >
   <section class="hero container">
-    <div class="hero-copy">
-      <p class="eyebrow">Product · Operations · Logistics — Lahti, Finland</p>
-      <h1>Abd Kabeer<br /><em>Salako</em></h1>
-      <p class="hero-lede">{profile.intro}</p>
-      <div class="hero-actions">
-        <a class="btn" href={`mailto:${profile.email}`}>Email me</a>
-        <a class="btn ghost" href="/cv">CV / print</a>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">// Portfolio 2045 · Product / Operations</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Abd Kabeer</span></span>
+          <span class="line"><span class="outline">Salako</span></span>
+        </h1>
+        <p class="hero-lede">
+          Product systems for a world that moves faster than its processes.
+          I turn operational mess into <strong>structured products</strong> — stockrooms,
+          suppliers, PRDs, priorities.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href={`mailto:${profile.email}`}>Open a channel</a>
+          <a class="btn ghost" href="/cv">View CV</a>
+        </div>
+        <p class="coords">Lahti, Finland · 60.98°N 25.66°E · UTC+3 · Available for internships</p>
       </div>
+
+      <aside class="hero-panel reveal">
+        <div class="panel-scan" aria-hidden="true"></div>
+        <div class="panel-top">
+          <span>System // profile</span>
+          <span class="status-dot">open</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Role</span>
+          <span class="panel-value">Product &amp; operations</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Studying</span>
+          <span class="panel-value">BBA International Business, LAB</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Focus</span>
+          <span class="panel-value">Logistics · e-commerce · SaaS</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Certified</span>
+          <span class="panel-value">HNG PM · Google PM</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Languages</span>
+          <span class="panel-value">EN fluent · FI basic · YO native</span>
+        </div>
+      </aside>
     </div>
 
-    <aside class="hero-meta">
-      <div>
-        <span>Based in</span>
-        <b>{profile.location}</b>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        {[...marquee, ...marquee].map((item) => <span class="marquee-item">{item}</span>)}
       </div>
-      <div>
-        <span>Currently</span>
-        <b>BBA International Business, LAB University</b>
-      </div>
-      <div>
-        <span>Focus</span>
-        <b>{profile.focus.join(" · ")}</b>
-      </div>
-      <div class="socials">
-        <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-        <a href={`mailto:${profile.email}`}>Email</a>
-      </div>
-    </aside>
+    </div>
   </section>
 
   <section class="metrics container reveal" aria-label="Selected numbers">
-    {profile.metrics.map((m) => (
-      <div class="metric">
-        <div class="metric-value">{m.value}</div>
-        <div class="metric-label">{m.label}</div>
-      </div>
-    ))}
+    <div class="metric">
+      <div class="metric-value" data-count="30" data-suffix="+">30+</div>
+      <div class="metric-label">device sales managed weekly</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="100" data-suffix="+">100+</div>
+      <div class="metric-label">warehouse items per shift</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="6" data-suffix="-flat">6-flat</div>
+      <div class="metric-label">residential project coordinated</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="4" data-suffix="">4</div>
+      <div class="metric-label">apartment turnovers daily</div>
+    </div>
   </section>
 
   <section class="section container reveal" id="about">
     <div class="section-head">
-      <p class="eyebrow">About</p>
-      <h2>Operations taught me the product.</h2>
+      <p class="eyebrow">// About</p>
+      <h2 class="section-title">Operational instincts. <em>Product discipline.</em></h2>
     </div>
     <div class="about-grid">
       <div class="about-copy">
         <p>{profile.summary}</p>
         <p>
-          I care about the unglamorous parts: a clean requirements document, a supplier who
-          answers on time, a stock list that tells the truth. My goal is to bring that
+          I care about the unglamorous parts: a clean requirements document, a supplier
+          who answers on time, a stock list that tells the truth. My goal is to bring that
           grounded perspective into a product team.
         </p>
       </div>
-      <div class="facts">
-        <div class="fact">
-          <span>Studying</span>
-          International Business · LAB University of Applied Sciences
-        </div>
-        <div class="fact">
-          <span>Languages</span>
-          {profile.languages.map((l) => `${l.name} (${l.level})`).join(" · ")}
-        </div>
-        <div class="fact">
-          <span>Certified in</span>
-          HNG Product Management · Google Project Management
-        </div>
-        <div class="fact">
-          <span>Open to</span>
-          Logistics, e-commerce and SaaS internships
-        </div>
+      <div class="terminal" aria-label="Quick profile">
+        <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="term-line"><span class="term-key">role</span><span class="term-val">product &amp; operations</span></div>
+        <div class="term-line"><span class="term-key">base</span><span class="term-val">lahti, finland</span></div>
+        <div class="term-line"><span class="term-key">studying</span><span class="term-val">international business</span></div>
+        <div class="term-line"><span class="term-key">certified</span><span class="term-val">hng pm · google pm</span></div>
+        <div class="term-line"><span class="term-key">status</span><span class="term-val hl">open to internships</span></div>
       </div>
     </div>
   </section>
 
   <section class="section container reveal" id="experience">
     <div class="section-head">
-      <p class="eyebrow">Experience</p>
-      <h2>Where the operational instincts come from.</h2>
+      <p class="eyebrow">// Experience log</p>
+      <h2 class="section-title">Where the operational instincts come from.</h2>
     </div>
-    <div class="xp-list">
+    <div class="log">
       {profile.experience.map((job) => (
-        <article class="xp">
+        <article class="log-item">
           <div>
-            <div class="xp-when">{job.period}</div>
-            <div class="xp-where">{job.location}</div>
+            <div class="log-when">{job.period}</div>
+            <div class="log-where">{job.location}</div>
           </div>
           <div>
-            <h3>{job.role}</h3>
-            <p class="xp-company">{job.company}</p>
-            <ul>
-              {job.bullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
+            <h3 class="log-role">{job.role}</h3>
+            <p class="log-company">{job.company}</p>
+            <ul>{job.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
           </div>
         </article>
       ))}
@@ -108,21 +142,19 @@ import { profile } from "../data/profile";
 
   <section class="section container reveal" id="projects">
     <div class="section-head">
-      <p class="eyebrow">Projects</p>
-      <h2>Built, shipped, learned.</h2>
+      <p class="eyebrow">// Deployed work</p>
+      <h2 class="section-title">Products, games, and <em>shipped things.</em></h2>
     </div>
     <div class="projects">
       {profile.projects.map((project) => (
         <article class="project">
           <div class="project-top">
-            <span class="project-tag">{project.tag}</span>
-            <span class="project-period">{project.period}</span>
+            <span class={`tag ${project.kind === "game" ? "game" : ""}`}>{project.tag}</span>
+            <span class="period">{project.period}</span>
           </div>
           <h3>{project.name}</h3>
-          <p>{project.summary}</p>
-          <ul>
-            {project.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
+          <p class="project-desc">{project.summary}</p>
+          <ul>{project.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
           {project.links && (
             <div class="project-links">
               {project.links.map((link) => (
@@ -137,20 +169,20 @@ import { profile } from "../data/profile";
 
   <section class="section container reveal" id="skills">
     <div class="section-head">
-      <p class="eyebrow">Capabilities</p>
-      <h2>What I bring to a team.</h2>
+      <p class="eyebrow">// Capabilities</p>
+      <h2 class="section-title">The stack I work with.</h2>
     </div>
     <div class="skills-grid">
       {profile.skills.map((group) => (
         <div>
           <p class="skill-label">{group.label}</p>
-          <ul class="skill-list">
-            {group.items.map((item) => <li>{item}</li>)}
-          </ul>
+          <div class="chips">
+            {group.items.map((item) => <span class="chip">{item}</span>)}
+          </div>
         </div>
       ))}
     </div>
-    <div class="langs">
+    <div class="languages">
       {profile.languages.map((lang) => (
         <span class="lang"><b>{lang.name}</b> — {lang.level}</span>
       ))}
@@ -159,12 +191,12 @@ import { profile } from "../data/profile";
 
   <section class="section container reveal" id="education">
     <div class="section-head">
-      <p class="eyebrow">Education & certifications</p>
-      <h2>The formal side of the craft.</h2>
+      <p class="eyebrow">// Education</p>
+      <h2 class="section-title">The formal side of the craft.</h2>
     </div>
     <div class="duo">
-      <div class="duo-col">
-        <h3>Education</h3>
+      <div>
+        <p class="duo-title">Education</p>
         {profile.education.map((edu) => (
           <div class="entry">
             <h4>{edu.qualification}</h4>
@@ -174,8 +206,8 @@ import { profile } from "../data/profile";
           </div>
         ))}
       </div>
-      <div class="duo-col">
-        <h3>Certifications</h3>
+      <div>
+        <p class="duo-title">Certifications</p>
         {profile.certifications.map((cert) => (
           <div class="entry">
             <h4>{cert.name}</h4>
@@ -190,17 +222,66 @@ import { profile } from "../data/profile";
   <section class="container" id="contact">
     <div class="contact-band reveal">
       <div>
-        <p class="eyebrow">Contact</p>
-        <h2>Let’s talk.</h2>
+        <p class="eyebrow">// Contact</p>
+        <h2>Let’s build<br /><em>what’s next.</em></h2>
         <p>
           Looking for an intern who already understands stockrooms, suppliers and customers?
-          I’d love to hear about the team.
+          I’d like to hear about the team.
         </p>
       </div>
       <div class="contact-actions">
-        <a class="btn" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a class="btn" href={`mailto:${profile.email}`}>Open a channel</a>
         <a class="btn ghost" href={profile.phoneHref}>{profile.phone}</a>
+        <a class="btn ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // animated metric counters
+    const counters = document.querySelectorAll(".metric-value[data-count]");
+    const runCounter = (el) => {
+      const target = Number(el.dataset.count || 0);
+      const suffix = el.dataset.suffix || "";
+      if (reduceMotion) { el.textContent = target + suffix; return; }
+      const start = performance.now();
+      const duration = 1100;
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const cio = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) { runCounter(entry.target); cio.unobserve(entry.target); }
+        }
+      }, { threshold: 0.4 });
+      counters.forEach((el) => cio.observe(el));
+    } else {
+      counters.forEach(runCounter);
+    }
+
+    // card tilt + local glow (fine pointers only)
+    if (window.matchMedia("(pointer: fine)").matches && !reduceMotion) {
+      document.querySelectorAll(".project").forEach((card) => {
+        card.addEventListener("pointermove", (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          card.style.setProperty("--px", (px * 100).toFixed(1) + "%");
+          card.style.setProperty("--py", (py * 100).toFixed(1) + "%");
+          card.style.transform =
+            `perspective(900px) rotateX(${((0.5 - py) * 3.5).toFixed(2)}deg) ` +
+            `rotateY(${((px - 0.5) * 3.5).toFixed(2)}deg) translateY(-2px)`;
+        });
+        card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+      });
+    }
+  </script>
 </Base>

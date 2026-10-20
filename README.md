@@ -10,7 +10,7 @@ content typed in one file, design hand-crafted in CSS (no UI kit, no client fram
 
 - **Astro 5** — static output, zero JS framework, tiny runtime
 - **TypeScript** — strict mode; content model in `src/data/profile.ts`
-- **Bundled variable fonts** — Fraunces (display) + Inter (UI), via Fontsource, no CDN
+- **Bundled fonts** — Syne (display), Inter (body), JetBrains Mono (labels) via Fontsource
 - Hand-written CSS design system (`src/styles/global.css`)
 
 ## Run
@@ -60,8 +60,11 @@ npx vercel --prod
 
 ## Design notes
 
-- Warm paper (`#f6f2e8`), forest green accent (`#1e5a3c`), ink text
-- Serif display (Fraunces) + sans body (Inter)
-- Metrics strip with hairline dividers; experience as a period → content grid
-- Subtle scroll reveals, disabled under `prefers-reduced-motion`
+- **2025-2045 interface**: void background, lime signal accent, HUD framing, scanlines
+- Display type **Syne**, body **Inter**, labels **JetBrains Mono** (all bundled)
+- Motion: wordmark line reveal, drifting grid, pointer spotlight, scroll reveals,
+  animated metric counters, marquee, project-card tilt — all disabled under
+  `prefers-reduced-motion`
+- Projects include the two shipped Three.js games (Naija Penalty, Suomi Sniper) plus
+  MyMemo and the HNG inventory product
 - CV page is A4-printable; "Print / save as PDF" in the toolbar

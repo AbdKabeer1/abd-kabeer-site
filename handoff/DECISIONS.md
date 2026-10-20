@@ -12,6 +12,27 @@ Record choices the next agent should not re-litigate without a reason.
 - Trade-off: no component library to accelerate future features; fine for one page + CV.
 - Revisit if: the site grows into a blog/CMS → add Astro Content Collections, not a SPA.
 
+## 2026-10-20 — Superseded: "2045" futuristic interface
+
+- Context: user rejected the warm editorial direction as generic; asked for a motion-led,
+  futuristic look ("year 2045") and for both shipped games to appear in Projects.
+- Chosen: void background, lime signal accent, HUD panel in hero, Syne/Inter/JetBrains
+  Mono, kinetic wordmark, drifting grid, scanlines, pointer spotlight, counters,
+  marquee, card tilt. Current CSS tokens supersede the paper/forest palette.
+- Trade-off: dark, motion-heavy design is less conventional for a PM portfolio; kept
+  legibility and a printable light CV to balance it. All motion is reduced-motion safe.
+- Revisit if: recruiters report readability issues → keep layout, soften motion/font
+  sizes rather than reverting to the editorial direction.
+
+## 2026-10-20 — Games added; Suomi Sniper not hosted on Vercel
+
+- Context: user asked to include both Three.js games and to use their own live URLs.
+- Chosen: project cards link to https://streetpk-naija.start.ng/ and
+  https://suomi-sniper.start.ng/ with GitHub repos. Suomi Sniper's Vercel project was
+  deleted per the user's instruction; its repo was synced and pushed. Naija's Vercel
+  deployment is left as a backup but is not used on the site.
+- Trade-off: game previews are text-only (no screenshots yet).
+
 ## 2026-10-20 — Design direction: warm editorial, forest/ink palette
 
 - Context: must feel personal and professional, not "AI template".

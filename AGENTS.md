@@ -25,8 +25,11 @@ After a build, verify `/`, `/cv`, `/favicon.svg` return 200.
   framework, no build-time API calls.
 - Content changes go in **`src/data/profile.ts`** (typed interfaces at the top). Never
   hardcode résumé copy inside components if it belongs in the data file.
-- Design tokens live in `src/styles/global.css` (`:root`). Keep the palette: paper
-  `#f6f2e8`, ink `#16211b`, forest accent `#1e5a3c`, rust `#b3542f`.
+- Design tokens live in `src/styles/global.css` (`:root`). Keep the palette: void
+  `#05070b`, panel `#0a1118`, ink `#e7f2ec`, signal lime `#c8ff4d`, ice `#6be8ff`.
+  Display type is Syne, body Inter, labels JetBrains Mono. Motion is part of the brand:
+  scroll reveals, counters, card tilt, marquee — all disabled under
+  `prefers-reduced-motion`.
 - Fonts are bundled via Fontsource; never add a Google Fonts/CDN `<link>`.
 - No tracking, no analytics, no cookies. No external requests at runtime.
 - Keep pages semantic and accessible: one `h1` per page, visible focus states,
@@ -35,9 +38,10 @@ After a build, verify `/`, `/cv`, `/favicon.svg` return 200.
 ## Content facts (do not invent)
 
 Everything comes from the user's CV: 4 work entries, HNG product project, 2
-certifications, LAB University studies, skills and languages. If you add a project or
-role, it must be real and supplied by the user. Phone/email are intentionally public on
-this site.
+certifications, LAB University studies, skills and languages. Projects additionally
+include the user's shipped builds (MyMemo, Naija Penalty, Suomi Sniper) with their real
+links. If you add a project or role, it must be real and supplied by the user.
+Phone/email are intentionally public on this site.
 
 ## Deploy
 

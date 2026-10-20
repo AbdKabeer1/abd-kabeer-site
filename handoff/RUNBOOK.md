@@ -50,8 +50,9 @@ npm run build
 ## Troubleshooting
 
 - Port 4321 busy: `pkill -f "astro dev"` or `npm run dev -- --port 4322`.
-- Fonts look wrong: confirm `@fontsource-variable/*` imports remain in `Base.astro`
-  and that `dist/_astro/*.woff2` files were generated.
+- Fonts look wrong: confirm `@fontsource-variable/syne`, `inter` and
+  `jetbrains-mono` imports remain in `Base.astro` and that `dist/_astro/*.woff2` files
+  were generated.
 - Print layout broken: check `@media print` block at the end of `styles/global.css`.
 - Vercel stale build: redeploy with `npx vercel --prod`; build is static so no cache
   issues beyond CDN (hard refresh).

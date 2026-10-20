@@ -1,18 +1,23 @@
 # Status
 
-Last updated: 2026-10-20 06:55
+Last updated: 2026-10-20 07:10
 
 ## Done
 
-- Astro 5 + TypeScript scaffold, strict tsconfig, Fontsource variable fonts
-- Editorial design system (`src/styles/global.css`): paper/ink/forest palette,
-  Fraunces + Inter, metrics strip, experience grid, project cards, contact band
-- All CV content modelled in `src/data/profile.ts`
-- `/cv` print-friendly page with "Print / save as PDF"
-- SEO/meta + JSON-LD + favicon + robots
-- Verified: `astro check` 0/0, build OK, local preview 200 on `/`, `/cv`, `/404`
-- Deployed: https://abd-kabeer-site.vercel.app
-- Published: https://github.com/AbdKabeer1/abd-kabeer-site (public, `main`)
+- **"2045" redesign** with motion: void/lime HUD palette, Syne + Inter + JetBrains
+  Mono, kinetic wordmark entrance, drifting grid, pointer spotlight, scanlines,
+  animated counters, marquee, project-card tilt, scroll reveals. Reduced-motion safe.
+- **Projects now include both shipped games**:
+  - Naija Penalty — https://streetpk-naija.start.ng/ (repo: AbdKabeer1/naija-penalty)
+  - Suomi Sniper — https://suomi-sniper.start.ng/ (repo: AbdKabeer1/suomi-sniper)
+  plus MyMemo and the HNG SME Inventory Tracker.
+- Suomi Sniper was **not** deployed on Vercel (project deleted); its GitHub repo was
+  synced and pushed. Naija's Vercel backup deployment exists but the site links to
+  start.ng.
+- `/cv` remains a print-friendly printable CV, restyled as a light sheet inside the
+  dark interface.
+- Verified: `astro check` 0 errors/0 warnings; build OK; `/` and `/cv` 200 on
+  production; both game links rendered.
 
 ## In progress
 
@@ -24,15 +29,14 @@ Last updated: 2026-10-20 06:55
 
 ## Next
 
-1. User review of the live site: typography, density, whether the MyMemo project card
-   should stay (it is a real shipped side project).
-2. Optional: generate a PDF CV file (`public/cv.pdf`) and link it from the hero,
-   replacing/augmenting the print button.
-3. Optional: custom domain (e.g. a `.me` domain or name-based `.fi`), Vercel DNS.
-4. Optional: add a small "now" section or writing list if the user starts publishing.
+1. User review of the "2045" design on desktop + phone.
+2. Optional: generate a real `cv.pdf` download in addition to the print page.
+3. Optional: add screenshots/GIF previews to game cards (currently text-only).
+4. Optional custom domain.
 
 ## Current state
 
 - Runs locally: `npm run dev` (port 4321). Builds clean.
-- Live on Vercel; GitHub repo public.
-- Known-broken: none known. OG image not provided (text-only previews).
+- Live: https://abd-kabeer-site.vercel.app
+- Repo: https://github.com/AbdKabeer1/abd-kabeer-site
+- Known-broken: none known. No OG image asset yet.

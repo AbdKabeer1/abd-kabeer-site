@@ -1,6 +1,7 @@
 ---
-import "@fontsource-variable/fraunces/index.css";
+import "@fontsource-variable/syne/index.css";
 import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/jetbrains-mono/index.css";
 import "../styles/global.css";
 import { profile } from "../data/profile";
 
@@ -36,7 +37,7 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#1e5a3c" />
+    <meta name="theme-color" content="#05070b" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -49,16 +50,19 @@ const jsonLd = {
 
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
 
     <header class="site-header">
       <div class="container header-inner">
         <a class="monogram" href="/" aria-label={`${profile.name} — home`}>AK</a>
         <nav class="site-nav" aria-label="Main">
+          <a href="/#about">About</a>
           <a href="/#experience">Experience</a>
           <a href="/#projects">Projects</a>
           <a href="/#skills">Skills</a>
           <a href="/#contact">Contact</a>
-          <a class="nav-cv" href="/cv">CV</a>
+          <a class="nav-cv" href="/cv">CV ↗</a>
         </nav>
       </div>
     </header>
@@ -69,9 +73,9 @@ const jsonLd = {
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span>© {new Date().getFullYear()} {profile.name} — interface 2045</span>
         <span class="footer-links">
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={`mailto:${profile.email}`}>Email</a>
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
           <a href="/cv">CV</a>
         </span>
@@ -79,8 +83,11 @@ const jsonLd = {
     </footer>
 
     <script is:inline>
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // scroll reveals
       const els = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if ("IntersectionObserver" in window && !reduce) {
         const io = new IntersectionObserver(
           (entries) => {
             for (const e of entries) {
@@ -95,6 +102,19 @@ const jsonLd = {
         els.forEach((el) => io.observe(el));
       } else {
         els.forEach((el) => el.classList.add("in"));
+      }
+
+      // spotlight follows the pointer (fine pointers only)
+      const spot = document.getElementById("spotlight");
+      if (spot && window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener(
+          "pointermove",
+          (e) => {
+            spot.style.setProperty("--mx", e.clientX + "px");
+            spot.style.setProperty("--my", e.clientY + "px");
+          },
+          { passive: true }
+        );
       }
     </script>
   </body>
