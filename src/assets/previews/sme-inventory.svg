@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" role="img" aria-label="SME inventory system concept diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070d12"/>
+      <stop offset="1" stop-color="#0a141b"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#c8ff4d" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect width="1440" height="900" fill="url(#grid)"/>
+
+  <text x="64" y="84" font-family="monospace" font-size="16" letter-spacing="4" fill="#c8ff4d">SME INVENTORY SYSTEM</text>
+  <text x="64" y="112" font-family="monospace" font-size="12" letter-spacing="3" fill="#6f8a86">CONCEPT ARCHITECTURE / 2026</text>
+  <text x="1376" y="84" text-anchor="end" font-family="monospace" font-size="12" letter-spacing="3" fill="#6f8a86">HNG · PRODUCT TEAM</text>
+
+  <!-- connectors -->
+  <g stroke="#c8ff4d" stroke-opacity="0.45" stroke-width="2" fill="none">
+    <path d="M470 330 H640" stroke-dasharray="8 8"/>
+    <path d="M470 450 H640"/>
+    <path d="M800 390 H970" stroke-dasharray="8 8"/>
+    <path d="M970 390 V270 H1120"/>
+    <path d="M970 390 V510 H1120"/>
+  </g>
+
+  <!-- source nodes -->
+  <g font-family="monospace">
+    <rect x="300" y="290" width="170" height="80" rx="8" fill="#0d1a22" stroke="#6be8ff" stroke-opacity="0.5"/>
+    <text x="385" y="325" text-anchor="middle" font-size="14" letter-spacing="2" fill="#e7f2ec">SHOPIFY</text>
+    <text x="385" y="348" text-anchor="middle" font-size="10" letter-spacing="2" fill="#6f8a86">CHANNEL</text>
+
+    <rect x="300" y="410" width="170" height="80" rx="8" fill="#0d1a22" stroke="#6be8ff" stroke-opacity="0.5"/>
+    <text x="385" y="445" text-anchor="middle" font-size="14" letter-spacing="2" fill="#e7f2ec">ALIEXPRESS</text>
+    <text x="385" y="468" text-anchor="middle" font-size="10" letter-spacing="2" fill="#6f8a86">CHANNEL</text>
+  </g>
+
+  <!-- core -->
+  <g font-family="monospace">
+    <rect x="640" y="320" width="160" height="140" rx="10" fill="#0f1d17" stroke="#c8ff4d" stroke-opacity="0.8" filter="url(#glow)"/>
+    <text x="720" y="372" text-anchor="middle" font-size="14" letter-spacing="2" fill="#c8ff4d">INVENTORY</text>
+    <text x="720" y="396" text-anchor="middle" font-size="14" letter-spacing="2" fill="#c8ff4d">ENGINE</text>
+    <text x="720" y="424" text-anchor="middle" font-size="10" letter-spacing="2" fill="#6f8a86">SYNC / STOCK</text>
+  </g>
+
+  <!-- outputs -->
+  <g font-family="monospace">
+    <rect x="1120" y="230" width="190" height="80" rx="8" fill="#0d1a22" stroke="#6be8ff" stroke-opacity="0.5"/>
+    <text x="1215" y="265" text-anchor="middle" font-size="13" letter-spacing="2" fill="#e7f2ec">DASHBOARD</text>
+    <text x="1215" y="288" text-anchor="middle" font-size="10" letter-spacing="2" fill="#6f8a86">LOW STOCK ALERTS</text>
+
+    <rect x="1120" y="470" width="190" height="80" rx="8" fill="#0d1a22" stroke="#6be8ff" stroke-opacity="0.5"/>
+    <text x="1215" y="505" text-anchor="middle" font-size="13" letter-spacing="2" fill="#e7f2ec">REPORTS</text>
+    <text x="1215" y="528" text-anchor="middle" font-size="10" letter-spacing="2" fill="#6f8a86">TURNOVER / MARGIN</text>
+  </g>
+
+  <!-- activity chart -->
+  <g transform="translate(300,650)">
+    <text x="0" y="0" font-family="monospace" font-size="11" letter-spacing="3" fill="#6f8a86">STOCK TURNOVER</text>
+    <g fill="#c8ff4d" opacity="0.85">
+      <rect x="0" y="80" width="34" height="50" rx="2"/>
+      <rect x="52" y="56" width="34" height="74" rx="2"/>
+      <rect x="104" y="66" width="34" height="64" rx="2"/>
+      <rect x="156" y="34" width="34" height="96" rx="2"/>
+      <rect x="208" y="18" width="34" height="112" rx="2"/>
+      <rect x="260" y="44" width="34" height="86" rx="2"/>
+    </g>
+    <line x1="0" y1="132" x2="300" y2="132" stroke="#6f8a86" stroke-opacity="0.5"/>
+  </g>
+
+  <text x="1376" y="836" text-anchor="end" font-family="monospace" font-size="10" letter-spacing="3" fill="#6f8a86">CONCEPT VISUAL · NO PUBLIC BUILD</text>
+</svg>

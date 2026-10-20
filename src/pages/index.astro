@@ -1,6 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { profile } from "../data/profile";
+import mymemoShot from "../assets/previews/mymemo.png";
+import naijaShot from "../assets/previews/naija-penalty.png";
+import sniperShot from "../assets/previews/suomi-sniper.png";
+import smeShot from "../assets/previews/sme-inventory.svg";
+
+const previews: Record<string, ImageMetadata> = {
+  "MyMemo": mymemoShot,
+  "Naija Penalty": naijaShot,
+  "Suomi Sniper": sniperShot,
+  "SME Inventory Tracker": smeShot,
+};
 
 const marquee = [
   "Product thinking",
@@ -148,6 +161,18 @@ const marquee = [
     <div class="projects">
       {profile.projects.map((project) => (
         <article class="project">
+          {previews[project.name] && (
+            <div class="project-media">
+              <Image
+                src={previews[project.name]}
+                alt={`${project.name} — preview`}
+                widths={[640, 1280]}
+                sizes="(max-width: 980px) 92vw, 46vw"
+                format="webp"
+                loading="lazy"
+              />
+            </div>
+          )}
           <div class="project-top">
             <span class={`tag ${project.kind === "game" ? "game" : ""}`}>{project.tag}</span>
             <span class="period">{project.period}</span>

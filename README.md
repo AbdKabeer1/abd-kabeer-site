@@ -67,4 +67,6 @@ npx vercel --prod
   `prefers-reduced-motion`
 - Projects include the two shipped Three.js games (Naija Penalty, Suomi Sniper) plus
   MyMemo and the HNG inventory product
+- Project cards carry live screenshots (Astro `Image` → responsive WebP); SME uses a
+  custom concept diagram because it has no public build
 - CV page is A4-printable; "Print / save as PDF" in the toolbar

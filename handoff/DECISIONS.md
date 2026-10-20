@@ -12,6 +12,16 @@ Record choices the next agent should not re-litigate without a reason.
 - Trade-off: no component library to accelerate future features; fine for one page + CV.
 - Revisit if: the site grows into a blog/CMS → add Astro Content Collections, not a SPA.
 
+## 2026-10-20 — Project previews
+
+- Context: project cards were text-only; user approved screenshots.
+- Chosen: capture live sites with headless Chrome (1440×900), store PNG in
+  `src/assets/previews/`, render via `astro:assets` `<Image>` with responsive widths
+  and WebP (≈20–30 KB each). SME Inventory Tracker has no public build, so it gets a
+  custom 2045-style concept SVG labelled "concept visual".
+- Trade-off: previews are static images (no hover-video); re-capture when a game's
+  landing UI changes.
+
 ## 2026-10-20 — Superseded: "2045" futuristic interface
 
 - Context: user rejected the warm editorial direction as generic; asked for a motion-led,

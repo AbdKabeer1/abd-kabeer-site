@@ -16,6 +16,10 @@ Last updated: 2026-10-20 07:10
   start.ng.
 - `/cv` remains a print-friendly printable CV, restyled as a light sheet inside the
   dark interface.
+- **Project previews**: live screenshots of MyMemo, Naija Penalty and Suomi Sniper
+  (captured with headless Chrome, optimised by Astro to ~20–30 KB WebP), plus a
+  custom 2045-style concept diagram for SME Inventory Tracker. Cards zoom on hover;
+  tilt and spotlight unaffected.
 - Verified: `astro check` 0 errors/0 warnings; build OK; `/` and `/cv` 200 on
   production; both game links rendered.
 
