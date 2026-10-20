@@ -1,0 +1,87 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile } from "../data/profile";
+---
+
+<Base
+  title={`CV — ${profile.name}`}
+  description={`Curriculum vitae of ${profile.name} — product management, operations and logistics.`}
+>
+  <div class="cv-page container">
+    <div class="cv-toolbar">
+      <a class="btn ghost" href="/">← Back to site</a>
+      <button class="btn" id="printCv">Print / save as PDF</button>
+    </div>
+
+    <article class="cv-sheet">
+      <h1>{profile.name}</h1>
+      <p class="cv-role">Product & Operations · International Business</p>
+      <div class="cv-contact">
+        <span>{profile.location}</span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a href={profile.phoneHref}>{profile.phone}</a>
+        <a href={profile.github} target="_blank" rel="noreferrer">github.com/AbdKabeer1</a>
+      </div>
+
+      <h2>Profile</h2>
+      <p>{profile.summary}</p>
+
+      <h2>Experience</h2>
+      {profile.experience.map((job) => (
+        <div class="cv-item">
+          <h3>{job.role} — {job.company}</h3>
+          <div class="meta">{job.location} · {job.period}</div>
+          <ul>{job.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+        </div>
+      ))}
+
+      <h2>Projects</h2>
+      {profile.projects.map((project) => (
+        <div class="cv-item">
+          <h3>{project.name}</h3>
+          <div class="meta">{project.tag} · {project.period}</div>
+          <p>{project.summary}</p>
+          <ul>{project.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+        </div>
+      ))}
+
+      <div class="cv-grid">
+        <div>
+          <h2>Education</h2>
+          {profile.education.map((edu) => (
+            <div class="cv-item">
+              <h3>{edu.qualification}</h3>
+              <div class="meta">{edu.institution}{edu.location ? ` · ${edu.location}` : ""}{edu.period ? ` · ${edu.period}` : ""}</div>
+              {edu.detail && <p>{edu.detail}</p>}
+            </div>
+          ))}
+        </div>
+        <div>
+          <h2>Certifications</h2>
+          {profile.certifications.map((cert) => (
+            <div class="cv-item">
+              <h3>{cert.name}</h3>
+              <div class="meta">{cert.issuer} · {cert.period}</div>
+              <p>{cert.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <h2>Skills</h2>
+      {profile.skills.map((group) => (
+        <div class="cv-item">
+          <h3>{group.label}</h3>
+          <p>{group.items.join(" · ")}</p>
+        </div>
+      ))}
+
+      <h2>Languages</h2>
+      <p>{profile.languages.map((l) => `${l.name} — ${l.level}`).join(" · ")}</p>
+    </article>
+  </div>
+
+  <script is:inline>
+    document.getElementById("printCv")?.addEventListener("click", () => window.print());
+  </script>
+</Base>

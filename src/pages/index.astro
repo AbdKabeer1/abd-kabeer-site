@@ -1,0 +1,206 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile } from "../data/profile";
+---
+
+<Base
+  title={`${profile.name} — Product & Operations`}
+  description="Portfolio of Abd Kabeer Salako — product management, operations and logistics. International Business student in Lahti, Finland."
+>
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow">Product · Operations · Logistics — Lahti, Finland</p>
+      <h1>Abd Kabeer<br /><em>Salako</em></h1>
+      <p class="hero-lede">{profile.intro}</p>
+      <div class="hero-actions">
+        <a class="btn" href={`mailto:${profile.email}`}>Email me</a>
+        <a class="btn ghost" href="/cv">CV / print</a>
+      </div>
+    </div>
+
+    <aside class="hero-meta">
+      <div>
+        <span>Based in</span>
+        <b>{profile.location}</b>
+      </div>
+      <div>
+        <span>Currently</span>
+        <b>BBA International Business, LAB University</b>
+      </div>
+      <div>
+        <span>Focus</span>
+        <b>{profile.focus.join(" · ")}</b>
+      </div>
+      <div class="socials">
+        <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={`mailto:${profile.email}`}>Email</a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="metrics container reveal" aria-label="Selected numbers">
+    {profile.metrics.map((m) => (
+      <div class="metric">
+        <div class="metric-value">{m.value}</div>
+        <div class="metric-label">{m.label}</div>
+      </div>
+    ))}
+  </section>
+
+  <section class="section container reveal" id="about">
+    <div class="section-head">
+      <p class="eyebrow">About</p>
+      <h2>Operations taught me the product.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>{profile.summary}</p>
+        <p>
+          I care about the unglamorous parts: a clean requirements document, a supplier who
+          answers on time, a stock list that tells the truth. My goal is to bring that
+          grounded perspective into a product team.
+        </p>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <span>Studying</span>
+          International Business · LAB University of Applied Sciences
+        </div>
+        <div class="fact">
+          <span>Languages</span>
+          {profile.languages.map((l) => `${l.name} (${l.level})`).join(" · ")}
+        </div>
+        <div class="fact">
+          <span>Certified in</span>
+          HNG Product Management · Google Project Management
+        </div>
+        <div class="fact">
+          <span>Open to</span>
+          Logistics, e-commerce and SaaS internships
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container reveal" id="experience">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2>Where the operational instincts come from.</h2>
+    </div>
+    <div class="xp-list">
+      {profile.experience.map((job) => (
+        <article class="xp">
+          <div>
+            <div class="xp-when">{job.period}</div>
+            <div class="xp-where">{job.location}</div>
+          </div>
+          <div>
+            <h3>{job.role}</h3>
+            <p class="xp-company">{job.company}</p>
+            <ul>
+              {job.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal" id="projects">
+    <div class="section-head">
+      <p class="eyebrow">Projects</p>
+      <h2>Built, shipped, learned.</h2>
+    </div>
+    <div class="projects">
+      {profile.projects.map((project) => (
+        <article class="project">
+          <div class="project-top">
+            <span class="project-tag">{project.tag}</span>
+            <span class="project-period">{project.period}</span>
+          </div>
+          <h3>{project.name}</h3>
+          <p>{project.summary}</p>
+          <ul>
+            {project.bullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+          {project.links && (
+            <div class="project-links">
+              {project.links.map((link) => (
+                <a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal" id="skills">
+    <div class="section-head">
+      <p class="eyebrow">Capabilities</p>
+      <h2>What I bring to a team.</h2>
+    </div>
+    <div class="skills-grid">
+      {profile.skills.map((group) => (
+        <div>
+          <p class="skill-label">{group.label}</p>
+          <ul class="skill-list">
+            {group.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="langs">
+      {profile.languages.map((lang) => (
+        <span class="lang"><b>{lang.name}</b> — {lang.level}</span>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal" id="education">
+    <div class="section-head">
+      <p class="eyebrow">Education & certifications</p>
+      <h2>The formal side of the craft.</h2>
+    </div>
+    <div class="duo">
+      <div class="duo-col">
+        <h3>Education</h3>
+        {profile.education.map((edu) => (
+          <div class="entry">
+            <h4>{edu.qualification}</h4>
+            <div class="issuer">{edu.institution}{edu.location ? ` · ${edu.location}` : ""}</div>
+            {edu.period && <div class="when">{edu.period}</div>}
+            {edu.detail && <p class="detail">{edu.detail}</p>}
+          </div>
+        ))}
+      </div>
+      <div class="duo-col">
+        <h3>Certifications</h3>
+        {profile.certifications.map((cert) => (
+          <div class="entry">
+            <h4>{cert.name}</h4>
+            <div class="issuer">{cert.issuer} · {cert.period}</div>
+            <p class="detail">{cert.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="contact">
+    <div class="contact-band reveal">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s talk.</h2>
+        <p>
+          Looking for an intern who already understands stockrooms, suppliers and customers?
+          I’d love to hear about the team.
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a class="btn ghost" href={profile.phoneHref}>{profile.phone}</a>
+      </div>
+    </div>
+  </section>
+</Base>

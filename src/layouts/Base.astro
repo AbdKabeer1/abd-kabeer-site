@@ -1,0 +1,101 @@
+---
+import "@fontsource-variable/fraunces/index.css";
+import "@fontsource-variable/inter/index.css";
+import "../styles/global.css";
+import { profile } from "../data/profile";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://abd-kabeer-site.vercel.app");
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: "Product & Operations",
+  email: profile.email,
+  telephone: profile.phone,
+  address: { "@type": "PostalAddress", addressLocality: "Lahti", addressCountry: "FI" },
+  alumniOf: "LAB University of Applied Sciences",
+  sameAs: [profile.github],
+  url: canonical.toString(),
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1e5a3c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta name="twitter:card" content="summary" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="monogram" href="/" aria-label={`${profile.name} — home`}>AK</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/#experience">Experience</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#skills">Skills</a>
+          <a href="/#contact">Contact</a>
+          <a class="nav-cv" href="/cv">CV</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span class="footer-links">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/cv">CV</a>
+        </span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const els = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add("in"));
+      }
+    </script>
+  </body>
+</html>
